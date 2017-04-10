@@ -24,7 +24,7 @@ In your ``settings.py`` file, update the ``DOWNLOADER_MIDDLEWARES``
 variable like this.
 
 In Scrapy >=1.0:
-.. code-block:: python
+::
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
@@ -32,7 +32,7 @@ In Scrapy >=1.0:
     }
 
 In Scrapy <1.0:
-.. code-block:: python
+::
 
       DOWNLOADER_MIDDLEWARES = {
         'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
