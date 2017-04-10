@@ -23,13 +23,21 @@ Usage
 In your ``settings.py`` file, update the ``DOWNLOADER_MIDDLEWARES``
 variable like this.
 
+In Scrapy >=1.0:
 .. code-block:: python
 
     DOWNLOADER_MIDDLEWARES = {
+        'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+        'random_useragent.RandomUserAgentMiddleware': 400
+    }
+.. code-block:: python
+In Scrapy <1.0:
+.. code-block:: python
+      DOWNLOADER_MIDDLEWARES = {
         'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
         'random_useragent.RandomUserAgentMiddleware': 400
-    }
-
+         }
+.. code-block:: python
 This disables the default ``UserAgentMiddleware`` and enables the
 ``RandomUserAgentMiddleware``.
 
@@ -39,7 +47,7 @@ text file which has the list of all user-agents
 
 .. code-block:: python
 
-    USER_AGENT_LIST = "/path/to/useragents.txt"
+    USER_AGENT_LIST = "/path/to/useragents.txt" (written in settings.py)
 
 Now all the requests from your crawler will have a random user-agent
 picked from the text file.
